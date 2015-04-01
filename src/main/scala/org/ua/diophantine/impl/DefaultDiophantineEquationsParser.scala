@@ -7,7 +7,7 @@ import org.ua.diophantine.{DiophantineEquationsParser, SystemOfDiophantineEquati
  */
 object DefaultDiophantineEquationsParser extends DiophantineEquationsParser[String] {
   def parse(representation: String): SystemOfDiophantineEquations = {
-    val diophantine = representation.split(System.lineSeparator).map((x) => x.replace(" ", "")).filter {
+    val diophantine = representation.split("\n").map((x) => x.replace(" ", "")).filter {
       case str: String => str.trim.length != 0
     } map {
       equation: String =>
